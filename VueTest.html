@@ -7,23 +7,28 @@
 </head>
 <body>
     <div id="app" class="text-center">
-        <h1>{{ header }}</h1>
-        <input v-model="header">
-    </div>
+    <h1>{{header || "Welcome!"}}</h1>
+    <ul>
+        <li v-for="item in items" :key="item.id">{{item.label}}</li>
+    </ul>>
+</div>
 
-    <script src="https://unpkg.com/vue@3.4.21/dist/vue.global.js"></script>
+<script src="https://unpkg.com/vue@3"></script>
 <script>
-    window.__VUE_DEVTOOLS_GLOBAL_HOOK_ENABLED__ = true; // Force DevTools
-    console.log('Vue loaded:', typeof Vue !== 'undefined' ? Vue : 'Not found');
-    const app = Vue.createApp({
-        data() {
+    Vue.createApp({
+        data(){
             return {
-                header: "Vue is ready to party!"
-            };
+                header: 'Shopping List App',
+                items: [
+                {id: 1, label: "10 party hats"},
+                {id: 2, label: "2 board games"},
+                {id: 3, label: "20 cups"},
+                ]
+            }
         }
-    });
-    app.mount('#app');
-    console.log('Vue app mounted:', app);
+    })
+    .mount('#app')
 </script>
 </body>
 </html>
+
