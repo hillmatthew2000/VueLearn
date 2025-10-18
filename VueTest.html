@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app" class="text-center">
+        <h1>{{ header }}</h1>
+        <input v-model="header">
+    </div>
+
+    <script src="https://unpkg.com/vue@3.4.21/dist/vue.global.js"></script>
+<script>
+    window.__VUE_DEVTOOLS_GLOBAL_HOOK_ENABLED__ = true; // Force DevTools
+    console.log('Vue loaded:', typeof Vue !== 'undefined' ? Vue : 'Not found');
+    const app = Vue.createApp({
+        data() {
+            return {
+                header: "Vue is ready to party!"
+            };
+        }
+    });
+    app.mount('#app');
+    console.log('Vue app mounted:', app);
+</script>
+</body>
+</html>
